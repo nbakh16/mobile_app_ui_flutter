@@ -6,9 +6,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("E-Learning"),),
+      appBar: AppBar(title: const Text("Home Page"),),
       body: Center(
-        child: Text("E-Learning \n Home Page"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.asset('assets/images/sample-image.png', height: 100,),
+            const Text("Simple Home Page"),
+          ],
+        ),
       ),
     );
   }
