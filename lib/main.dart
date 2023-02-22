@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'e_learning_app/elearning_home.dart';
+import 'view/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepPurple,
       ),
-      home: const ELearningHome(),
+      home: const HomePage(),
     );
   }
 }
