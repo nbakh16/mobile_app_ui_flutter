@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app_ui_flutter/constant/colors.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
+import '../widgets/trending_courses.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -16,9 +18,9 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            WelcomeText(),
-            SearchTextField(),
-            TitleRow(),
+            const WelcomeText(),
+            const SearchTextField(),
+            TrendingCourse()
           ],
         ),
       ),
@@ -54,44 +56,6 @@ class HomePage extends StatelessWidget {
             ),
           ),
         )
-      ],
-    );
-  }
-}
-
-class TitleRow extends StatelessWidget {
-  const TitleRow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Expanded(
-          flex: 3,
-          child: Text('Trending Courses',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: fontColor,
-              fontSize: 18),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: InkWell(
-            onTap: (){
-              ///view all courses
-            },
-            child: const Text('View all',
-              style: TextStyle(
-                color: fontLightColor,
-                fontSize: 16,
-                decoration: TextDecoration.underline,
-              ),
-              textAlign: TextAlign.right,
-            ),
-          ),
-        ),
       ],
     );
   }
