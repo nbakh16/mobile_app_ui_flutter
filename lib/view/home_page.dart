@@ -10,14 +10,15 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             WelcomeText(),
             SearchTextField(),
+            TitleRow(),
           ],
         ),
       ),
@@ -26,10 +27,7 @@ class HomePage extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      title: const Padding(
-        padding: EdgeInsets.only(left: 22.0),
-        child: Text("Home Page"),
-      ),
+      title: Text("Home Page"),
       titleTextStyle: const TextStyle(color: fontLightColor),
       backgroundColor: bgColor,
       elevation: 0,
@@ -56,6 +54,44 @@ class HomePage extends StatelessWidget {
             ),
           ),
         )
+      ],
+    );
+  }
+}
+
+class TitleRow extends StatelessWidget {
+  const TitleRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Expanded(
+          flex: 3,
+          child: Text('Trending Courses',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: fontColor,
+              fontSize: 18),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: InkWell(
+            onTap: (){
+              ///view all courses
+            },
+            child: const Text('View all',
+              style: TextStyle(
+                color: fontLightColor,
+                fontSize: 16,
+                decoration: TextDecoration.underline,
+              ),
+              textAlign: TextAlign.right,
+            ),
+          ),
+        ),
       ],
     );
   }
