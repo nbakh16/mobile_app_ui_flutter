@@ -22,26 +22,50 @@ class CourseModel {
         '2001',
         'Mobile Application Development',
         'assets/images/sample-image.png',
-        'Learn to develop mobile application using Flutter. we will learn various flutter tricks to boost our productivity',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+            'eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+            'Posuere lorem ipsum dolor sit amet consectetur adipiscing. '
+            'Mauris a diam maecenas sed enim. Adipiscing tristique risus nec '
+            'feugiat in. Vestibulum morbi blandit cursus risus at.',
         '22h',
         'Name name'
       ),
       CourseModel(
-          '2001',
-          'Mobile Application Development',
+          '2021',
+          'Web Development',
           'assets/images/sample-image.png',
-          'Learn to develop mobile application using Flutter. we will learn various flutter tricks to boost our productivity',
-          '22h',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+              'eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+              'Posuere lorem ipsum dolor sit amet consectetur adipiscing. '
+              'Mauris a diam maecenas sed enim. Adipiscing tristique risus nec '
+              'feugiat in. Vestibulum morbi blandit cursus risus at.',
+          '18h',
           'Name name'
       ),
       CourseModel(
-          '2001',
-          'Mobile Application Development',
+          '2200',
+          'Graphics Designing',
           'assets/images/sample-image.png',
-          'Learn to develop mobile application using Flutter. we will learn various flutter tricks to boost our productivity',
-          '22h',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+              'eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+              'Posuere lorem ipsum dolor sit amet consectetur adipiscing. '
+              'Mauris a diam maecenas sed enim. Adipiscing tristique risus nec '
+              'feugiat in. Vestibulum morbi blandit cursus risus at.',
+          '12h',
           'Name name'
-      )
+      ),
+      CourseModel(
+          '4000',
+          'Python Bootcamp',
+          'assets/images/sample-image.png',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+              'eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+              'Posuere lorem ipsum dolor sit amet consectetur adipiscing. '
+              'Mauris a diam maecenas sed enim. Adipiscing tristique risus nec '
+              'feugiat in. Vestibulum morbi blandit cursus risus at.',
+          '16h',
+          'Name name'
+      ),
     ];
   }
 }
