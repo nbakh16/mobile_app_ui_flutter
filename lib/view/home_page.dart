@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app_ui_flutter/constant/colors.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
+import '../widgets/course_progress.dart';
 import '../widgets/trending_courses.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,15 +14,21 @@ class HomePage extends StatelessWidget {
       appBar: buildAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const WelcomeText(),
-            const SearchTextField(),
-            TrendingCourse()
-          ],
+        child: Center(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const WelcomeText(),
+                const SearchTextField(),
+                TrendingCourse(),
+                const CoursesProgress()
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -29,7 +36,7 @@ class HomePage extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      title: Text("Home Page"),
+      title: const Text(""),
       titleTextStyle: const TextStyle(color: fontLightColor),
       backgroundColor: bgColor,
       elevation: 0,
@@ -43,10 +50,10 @@ class HomePage extends StatelessWidget {
             child: Stack(
               alignment: Alignment.topRight,
               children: [
-                const Icon(IconlyLight.notification, color: fontLightColor,),
+                const Icon(IconlyLight.notification, color: fontLightColor, size: 28,),
                 Container(
-                  height: 10,
-                  width: 10,
+                  height: 12,
+                  width: 12,
                   decoration: const BoxDecoration(
                       color: accentColor,
                       shape: BoxShape.circle
@@ -125,12 +132,25 @@ class WelcomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('What a day to learn\nsomething new!',
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: fontColor,
-        fontSize: 22
-      )
+    return RichText(
+        text: const TextSpan(
+            style: TextStyle(
+                color: fontLightColor,
+                fontSize: 18,
+                fontWeight: FontWeight.normal
+            ),
+            children: <TextSpan>[
+              TextSpan(text: "Greetings, \n\n"),
+              TextSpan(
+                  text: 'What a day to learn\nsomething new!',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: fontColor,
+                      fontSize: 22
+                  )
+              )
+            ]
+        )
     );
   }
 }

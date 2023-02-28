@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_ui_flutter/widgets/title_row.dart';
 
 import '../constant/colors.dart';
 import '../model/course_model.dart';
@@ -11,7 +12,7 @@ class TrendingCourse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const TitleRow(),
+        TitleRow(primaryText: 'Trending Courses', secondaryText: 'View all'),
         const SizedBox(height: 8,),
         SizedBox(
           height: 250,
@@ -30,44 +31,6 @@ class TrendingCourse extends StatelessWidget {
               },
             ),
             separatorBuilder: (context, index) => const SizedBox(width: 12,),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class TitleRow extends StatelessWidget {
-  const TitleRow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Expanded(
-          flex: 3,
-          child: Text('Trending Courses',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: fontColor,
-                fontSize: 18),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: InkWell(
-            onTap: (){
-              ///view all courses
-            },
-            child: const Text('View all',
-              style: TextStyle(
-                color: fontLightColor,
-                fontSize: 16,
-                decoration: TextDecoration.underline,
-              ),
-              textAlign: TextAlign.right,
-            ),
           ),
         ),
       ],
