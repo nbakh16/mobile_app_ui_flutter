@@ -30,7 +30,7 @@ class CoursesProgress extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset('assets/images/sample-image.png', height: 85,),
+                  child: Image.asset('assets/images/course02.png', height: 85,),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(5),
