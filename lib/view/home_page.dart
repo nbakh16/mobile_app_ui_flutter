@@ -5,14 +5,8 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import '../widgets/course_progress.dart';
 import '../widgets/trending_courses.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +32,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
 }
 
 class SearchTextField extends StatelessWidget {

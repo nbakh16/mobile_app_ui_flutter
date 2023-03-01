@@ -15,45 +15,40 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  List pagesList = const [
+    HomePage(),
+    CoursesPage(),
+    BookmarkPage(),
+    UserPage(),
+  ];
+
   var currentIndex = 0;
-  Widget currentWidget = HomePage();
-
-  @override
-  void initState() {
-    loadScreen();
-    super.initState();
-  }
-
-  void loadScreen() {
-    switch(currentIndex) {
-      case 0: return setState(() => currentWidget = HomePage());
-      case 1: return setState(() => currentWidget = CoursesPage());
-      case 2: return setState(() => currentWidget = BookmarkPage());
-      case 3: return setState(() => currentWidget = UserPage());
-    }
+  void onTap(int index){
+    setState(() {
+      currentIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: currentWidget,
+      body: pagesList[currentIndex],
       bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
 
   BottomNavigationBar buildBottomNavigationBar() {
     return BottomNavigationBar(
+      currentIndex: currentIndex,
       type: BottomNavigationBarType.fixed,
       showUnselectedLabels: false,
+      unselectedFontSize: 0,
       selectedItemColor: accentColor,
-      onTap: (index){
-        setState(() {
-          currentIndex = index;
-        });
-        loadScreen();
-      },
-      items: [
+      backgroundColor: bgColor,
+      elevation: 4,
+      onTap: onTap,
+      items: const [
         BottomNavigationBarItem(
             label: 'Home',
             icon: Icon(IconlyLight.home),
