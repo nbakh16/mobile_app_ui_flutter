@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: Center(
           child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
+            // physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,6 +31,33 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: buildBottomNavigationBar(),
+    );
+  }
+
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: false,
+      selectedItemColor: accentColor,
+      items: [
+        BottomNavigationBarItem(
+          label: 'Home',
+          icon: Icon(IconlyLight.home)
+        ),
+        BottomNavigationBarItem(
+            label: 'Schedule',
+            icon: Icon(IconlyLight.calendar)
+        ),
+        BottomNavigationBarItem(
+            label: 'Bookmark',
+            icon: Icon(IconlyLight.bookmark)
+        ),
+        BottomNavigationBarItem(
+            label: 'Personal',
+            icon: Icon(IconlyLight.user2)
+        ),
+      ],
     );
   }
 
