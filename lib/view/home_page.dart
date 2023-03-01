@@ -5,13 +5,18 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import '../widgets/course_progress.dart';
 import '../widgets/trending_courses.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: Center(
@@ -31,68 +36,9 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
 
-  BottomNavigationBar buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      showUnselectedLabels: false,
-      selectedItemColor: accentColor,
-      items: [
-        BottomNavigationBarItem(
-          label: 'Home',
-          icon: Icon(IconlyLight.home)
-        ),
-        BottomNavigationBarItem(
-            label: 'Schedule',
-            icon: Icon(IconlyLight.calendar)
-        ),
-        BottomNavigationBarItem(
-            label: 'Bookmark',
-            icon: Icon(IconlyLight.bookmark)
-        ),
-        BottomNavigationBarItem(
-            label: 'Personal',
-            icon: Icon(IconlyLight.user2)
-        ),
-      ],
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      title: const Text(""),
-      titleTextStyle: const TextStyle(color: fontLightColor),
-      backgroundColor: bgColor,
-      elevation: 0,
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 22.0, top: 15.0),
-          child: GestureDetector(
-            onTap: (){
-              ///notification
-            },
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                const Icon(IconlyLight.notification, color: fontLightColor, size: 28,),
-                Container(
-                  height: 12,
-                  width: 12,
-                  decoration: const BoxDecoration(
-                      color: accentColor,
-                      shape: BoxShape.circle
-                  ),
-                )
-              ],
-            ),
-          ),
-        )
-      ],
-    );
-  }
 }
 
 class SearchTextField extends StatelessWidget {
