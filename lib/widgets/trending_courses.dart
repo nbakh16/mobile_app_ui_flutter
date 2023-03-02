@@ -3,6 +3,7 @@ import 'package:mobile_app_ui_flutter/widgets/title_row.dart';
 
 import '../constant/colors.dart';
 import '../model/course_model.dart';
+import '../view/course_details.dart';
 
 class TrendingCourse extends StatelessWidget {
 
@@ -27,6 +28,15 @@ class TrendingCourse extends StatelessWidget {
               ),
               onTap: () {
                 ///course details page
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CourseDetails(
+                    courseImage: coursesList[index].courseImage,
+                    courseName: coursesList[index].courseName,
+                    description: coursesList[index].courseDescription,
+                    duration: coursesList[index].courseDuration,
+                    instructor: coursesList[index].courseInstructor,
+                  ),
+                ));
                 print('index: $index, course name: ${coursesList[index].courseName}');
               },
             ),
