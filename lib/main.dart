@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'view/home_page.dart';
+import 'package:mobile_app_ui_flutter/view/main_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent)
+  );
   runApp(const MyApp());
 }
 
@@ -26,8 +29,9 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.deepPurple,
+        scaffoldBackgroundColor: Colors.white
       ),
-      home: const HomePage(),
+      home: const MainPage(),
     );
   }
 }
