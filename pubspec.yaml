@@ -22,6 +22,7 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_expandable_fab: ^2.0.0
   expandable_fab_menu: ^0.0.1
+  flutter_animate: ^4.2.0+1
   flutter_speed_dial: ^7.0.0
 
 dev_dependencies:
