@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app_ui_flutter/utils/theme.dart';
-import 'package:mobile_app_ui_flutter/view/sub_stat_page.dart';
+import 'package:mobile_app_ui_flutter/view/bottom_nav_base.dart';
+import 'package:mobile_app_ui_flutter/view/test_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter UI',
       theme: AppTheme().appThemeData(),
-      home: const SubscriptionStatusPage(),
+      home: const TestBottomNavBase(),
     );
   }
 

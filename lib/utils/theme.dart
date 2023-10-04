@@ -48,7 +48,10 @@ class AppTheme{
                     color: AppColors.vanillaWhite
                 )
             )
-        )
+        ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: AppColors.purple
+      )
     );
   }
 }
