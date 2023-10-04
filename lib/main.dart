@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app_ui_flutter/view/main_page.dart';
-import 'package:flutter/services.dart';
+import 'package:mobile_app_ui_flutter/utils/theme.dart';
+import 'package:mobile_app_ui_flutter/view/sub_stat_page.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(statusBarColor: Colors.transparent)
-  );
   runApp(const MyApp());
 }
 
@@ -18,20 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter UI',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: Colors.white
-      ),
-      home: const MainPage(),
+      theme: AppTheme().appThemeData(),
+      home: const SubscriptionStatusPage(),
     );
   }
+
 }
