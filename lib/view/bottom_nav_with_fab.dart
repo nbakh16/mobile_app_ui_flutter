@@ -21,7 +21,7 @@ class _BottomNavWithFABState extends State<BottomNavWithFAB> with TickerProvider
   ];
   int _currentSelectedIndex = 0;
 
-  bool isFABinitialIcon = false;
+  bool isFABinitialIcon = true;
   late AnimationController _animationController;
   bool isFABexpanded = false;
   final Duration _duration = const Duration(milliseconds: 250);
@@ -43,58 +43,71 @@ class _BottomNavWithFABState extends State<BottomNavWithFAB> with TickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          _screens[_currentSelectedIndex],
-          AnimatedPositioned(
-            bottom: isFABexpanded ? 0 : -300,
-            duration: _duration,
-            child: const FABPopupMenu()
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 4,
-        notchMargin: 0,
-        child: Container(
-          height: 70,
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22)
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _bottomNavItem(0, Icons.wb_sunny_outlined),
-              Stack(
-                children: [
-                  _bottomNavItem(1, IconlyLight.notification),
-                  const Positioned(
-                    top: -12,
-                    right: -2,
-                    child: IgnorePointer(
-                      child: Text('●',
-                        style: TextStyle(color: AppColors.purple, fontSize: 25),
-                      ),
-                    ),
-                  )
-                ],
+    return GestureDetector(
+      onTap: collapseFAB,
+      child: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            _screens[_currentSelectedIndex],
+            AnimatedPositioned(
+              bottom: !isFABexpanded ? -300 : 0,
+              duration: _duration,
+              child: const FABPopupMenu()
+            ),
+          ],
+        ),
+        bottomNavigationBar: BottomAppBar(
+          elevation: 4,
+          shape: const AutomaticNotchedShape(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(28),
+                topLeft: Radius.circular(28),
               ),
-              const SizedBox(width: 8.0,),
-              _bottomNavItem(2, IconlyLight.graph),
-              _bottomNavItem(3, Icons.copy),
-            ],
+            ),
+          ),
+          child: Container(
+            height: 70,
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22)
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _bottomNavItem(0, Icons.wb_sunny_outlined),
+                Stack(
+                  children: [
+                    _bottomNavItem(1, IconlyLight.notification),
+                    const Positioned(
+                      top: -12,
+                      right: -2,
+                      child: IgnorePointer(
+                        child: Text('●',
+                          style: TextStyle(color: AppColors.purple, fontSize: 25),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(width: 8.0,),
+                _bottomNavItem(2, IconlyLight.graph),
+                _bottomNavItem(3, Icons.copy),
+              ],
+            ),
           ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: _fabOnTap,
-        child: AnimatedIcon(
-          icon: AnimatedIcons.menu_close,
-          progress: _animationController,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: _fabOnTap,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0), // Adjust the value as needed
+          ),
+          child: AnimatedIcon(
+            icon: AnimatedIcons.menu_close,
+            progress: _animationController,
+          ),
         ),
       ),
     );
@@ -104,12 +117,12 @@ class _BottomNavWithFABState extends State<BottomNavWithFAB> with TickerProvider
     isFABexpanded = !isFABexpanded;
     setState(() {});
 
-    if(isFABinitialIcon == false) {
+    if(isFABinitialIcon == true) {
       _animationController.forward();
-      isFABinitialIcon = true;
+      isFABinitialIcon = false;
     } else {
       _animationController.reverse();
-      isFABinitialIcon = false;
+      isFABinitialIcon = true;
     }
   }
 
@@ -119,14 +132,22 @@ class _BottomNavWithFABState extends State<BottomNavWithFAB> with TickerProvider
         setState(() {
           _currentSelectedIndex = index;
         });
+        collapseFAB();
        },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            icon,
-            color: _currentSelectedIndex == index ? AppColors.primary : Colors.grey,
-            size: 28,
+          AnimatedContainer(
+            duration: _duration,
+            height: _currentSelectedIndex == index ? 32 : 28,
+            width: _currentSelectedIndex == index ? 32 : 28,
+            child: Expanded(
+              child: Icon(
+                icon,
+                color: _currentSelectedIndex == index ? AppColors.primary : AppColors.purpleGrey.withOpacity(0.5),
+                size: 30,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 4.0),
@@ -144,5 +165,18 @@ class _BottomNavWithFABState extends State<BottomNavWithFAB> with TickerProvider
         ],
       ),
     );
+  }
+
+  void collapseFAB() {
+    if(mounted) {
+      if(isFABexpanded == true) {
+        setState(() {
+          isFABexpanded = false;
+
+          _animationController.reverse();
+          isFABinitialIcon = true;
+        });
+      }
+    }
   }
 }

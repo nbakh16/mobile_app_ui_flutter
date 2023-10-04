@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:mobile_app_ui_flutter/widgets/text_icon_item.dart';
 
 import '../utils/colors.dart';
@@ -24,11 +25,11 @@ class FABPopupMenu extends StatelessWidget {
             ),
             TextIconItem(
               title: 'Voice note',
-              icon: Icons.keyboard_voice,
+              icon: IconlyLight.voice,
             ),
             TextIconItem(
               title: 'Add photo',
-              icon: Icons.photo,
+              icon: IconlyLight.image2,
             ),
           ],
         ),

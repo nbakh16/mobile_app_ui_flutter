@@ -9,7 +9,20 @@ class DemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Page $page'),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Text('$page',
+              style: TextStyle(
+                fontSize: 225,
+                color: Colors.white.withOpacity(0.15)
+              ),
+            ),
+            Text('Page',
+                style: Theme.of(context).textTheme.titleLarge
+            ),
+          ],
+        ),
       ),
     );
   }
