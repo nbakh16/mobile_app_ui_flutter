@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app_ui_flutter/utils/theme.dart';
-import 'package:mobile_app_ui_flutter/view/bottom_nav_with_fab.dart';
+import 'package:mobile_app_ui_flutter/view/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter UI',
-      theme: AppTheme().appThemeData(),
-      home: const BottomNavWithFAB(),
+      home: const HomePage(),
     );
   }
-
 }
