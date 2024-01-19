@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PageController pageController = PageController(viewportFraction: 0.7);
+  PageController pageController = PageController(viewportFraction: 0.65);
   double pageOffset = 0;
 
   @override
@@ -39,8 +39,8 @@ class _HomePageState extends State<HomePage> {
           child: PageView.builder(
             controller: pageController,
             // itemCount: images.length,
-            pageSnapping: false,
-            padEnds: false,
+            pageSnapping: true,
+            padEnds: pageOffset == 0 ? false : true,
             itemBuilder: (context, index) {
               Map image = images[index % images.length];
               return Padding(
