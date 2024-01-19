@@ -1,4 +1,4 @@
-### Bottom Navigation Bar with expandable FAB
+### Parallax list effect
 
 
-![screenshot01](https://github.com/nbakh16/mobile_app_ui_flutter/assets/38786346/67cfdabe-c54e-4749-a4fe-1b845fffdf47)
+![flutter-parallex--effect-list](https://github.com/nbakh16/mobile_app_ui_flutter/assets/38786346/0e85c017-d644-400b-b10b-3962afc7bf87)
